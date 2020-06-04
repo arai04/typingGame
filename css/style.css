@@ -1,0 +1,8 @@
+body{
+  padding-top:100px;
+}
+#question{
+  display:flex;
+  justify-content:center;
+  font-size:2rem;
+}
