@@ -4,8 +4,9 @@ body{
 #question{
   display:flex;
   justify-content:center;
-  font-size:2rem;
+  font-size:4rem;
+  color:gray;
 }
-#changeCol{
-  color:#333;
+.changeColor{
+  color:black;
 }

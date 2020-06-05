@@ -1,3 +1,5 @@
+const p = document.getElementById('question');
+
 const questions = [
   "JavaScript",
   "split",
@@ -8,18 +10,23 @@ const questions = [
 const mathNum =  Math.floor(Math.random() * questions.length);
 const question = questions[mathNum];
 
-//一文字ずつ格納
-const questionText = [...question];
-
-//問題を出力
-const element = document.getElementById("question");
-element.insertAdjacentHTML("afterbegin",question)
+//一文字ずつspnaタグをつけて格納
+let questionText = [] ;
+questionText = [...question].map( (text) =>{
+  const spanElement = document.createElement('span');
+  spanElement.textContent = text ;
+  p.appendChild(spanElement);
+  //insertAdjacentElement('afterbegin',spanElement);だと
+  //HTMLに挿入される時鏡文字で挿入された。
+  //配列の中身は逆にならなかった
+  return spanElement;
+} );
 
 //押されたキーと問題テキストが一致した時
-console.log(questionText);
-document.addEventListener('keydown',event => {
-  if(event.key === questionText[0]){
+document.addEventListener('keydown',keyDown => {
+  if(event.key === questionText[0].textContent){
     console.log("true");
+    questionText[0].className = "changeColor";
     questionText.shift();
   }
 });
