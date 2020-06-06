@@ -3,12 +3,12 @@ const p = document.getElementById('question');
 const questions = [
   "JavaScript",
   "split",
-  "console.log",
-  "document.getElementById",
-  "shift",
-  "insertAdjacentElement",
-  "class",
-  "length"
+//  "console.log",
+//  "document.getElementById",
+//  "shift",
+//  "insertAdjacentElement",
+//  "class",
+//  "length"
 ];
 
 //questionのindex分乱数を格納
@@ -34,6 +34,7 @@ const createText = () => {
   p.textContent = '';
   const question = questions[numQrnd[0]];
   numQrnd.shift();
+  console.log(numQrnd);
   questionText = [...question].map( (text) =>{
     const spanElement = document.createElement('span');
     spanElement.textContent = text ;
@@ -44,15 +45,32 @@ const createText = () => {
     return spanElement;
   } );
 }
-createText();
 
 //押されたキーと問題テキストが一致した時
-document.addEventListener('keydown',keyDown => {
-  if(event.key === questionText[0].textContent){
-    console.log("true");
-    questionText[0].className = "changeColor";
-    questionText.shift();
+const keyDown = () => {
+  document.addEventListener('keydown',keyDown => {
+    if(event.key === questionText[0].textContent){
+      console.log("true");
+      questionText[0].className = "changeColor";
+      questionText.shift();
 
-    if(questionText.length === 0) createText();
-  }
+      if(questionText.length === 0) createText();
+    }
+  })
+};
+
+
+
+const button = document.getElementById('start-button');
+const time =[];
+//const startCount =() =>{
+//  window.setTimeout(.alert,3 * 1000, 'fuckin');
+//}
+button.addEventListener('click', event =>{
+  button.classList.add('hidden');
 });
+const start =() =>{
+  keyDown();
+  createText();
+}
+

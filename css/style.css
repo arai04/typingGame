@@ -1,5 +1,5 @@
 body{
-  padding-top:100px;
+  padding-top:300px;
 }
 #question{
   display:flex;
@@ -10,4 +10,13 @@ body{
 .changeColor{
   color:black;
   font-size:3.5rem;
+}
+.button-style{
+  display:flex;
+  justify-content:center;
+  margin:auto;
+  font-size:2rem;
+}
+.hidden{
+  display:none;
 }
